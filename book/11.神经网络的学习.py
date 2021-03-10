@@ -17,7 +17,8 @@ mean_squared_error(np.array(y), np.array(t))
 
 
 #   2.交叉熵误差
-
+#   log表示以e为底数的自然对数（log e ）。y k 是神经网络的输出，t k 是
+#   正确解标签。并且，t k 中只有正确解标签的索引为1，其他均为0（one-hot表示）
 def cross_entropy_error(y, t):
     delta = 1e-7
     return -np.sum(t * np.log(y + delta))
