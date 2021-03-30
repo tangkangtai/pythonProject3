@@ -57,9 +57,9 @@ class SimpleConvNet:
                                             conv_param['stride'],
                                             conv_param['pad'])
         self.layers['Relu1'] = ReLU_()
-        self.layers['Pool1'] = Pooling_(pool_h=2,pool_w=2,stride=2)
+        self.layers['Pool1'] = Pooling_(pool_h=2, pool_w=2, stride=2)
 
-        self.layers['Affine1'] = Affine_(self.params['W2'],self.params['b2'])
+        self.layers['Affine1'] = Affine_(self.params['W2'], self.params['b2'])
         self.layers['Relu2'] = ReLU_()
 
         self.layers['Affine2'] = Affine_(self.params['W3'], self.params['b3'])
@@ -96,7 +96,7 @@ class SimpleConvNet:
         for layer in layers:
             dout = layer.backward(dout)
 
-        #设定
+        # 设定
         grads = {}
         grads['W1'] = self.layers['Conv1'].dW
         grads['b1'] = self.layers['Conv1'].db
